@@ -2,10 +2,10 @@ import org.example.arge.CarSkeleton;
 import org.example.arge.ElectricCar;
 import org.example.arge.GasPoweredCar;
 import org.example.arge.HybridCar;
-import org.example.company.Car;
-import org.example.company.Ford;
-import org.example.company.Holden;
-import org.example.company.Mitsubishi;
+import org.example.conpany.Car;
+import org.example.conpany.Ford;
+import org.example.conpany.Holden;
+import org.example.conpany.Mitsubishi;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,10 +24,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(ResultAnalyzer.class)
 public class MainTest {
 
-    Car car;
-    Mitsubishi mitsubishi;
-    Holden holden;
-    Ford ford;
+    org.example.conpany.Car car;
+    org.example.conpany.Mitsubishi mitsubishi;
+    org.example.conpany.Holden holden;
+    org.example.conpany.Ford ford;
     CarSkeleton carSkeleton;
     GasPoweredCar gasPoweredCar;
     HybridCar hybridCar;
@@ -36,10 +36,10 @@ public class MainTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car(4, "Mercedes");
-        mitsubishi = new Mitsubishi(4, "Mitsubishi");
-        holden = new Holden(4, "Holden");
-        ford = new Ford(4, "Ford");
+        car = new org.example.conpany.Car(4, "Mercedes");
+        mitsubishi = new org.example.conpany.Mitsubishi(4, "Mitsubishi");
+        holden = new org.example.conpany.Holden(4, "Holden");
+        ford = new org.example.conpany.Ford(4, "Ford");
         carSkeleton = new CarSkeleton("Test", "test");
         electricCar = new ElectricCar("Test", "test", 10, 5);
         gasPoweredCar = new GasPoweredCar("Test", "test", 10, 4);
@@ -100,9 +100,9 @@ public class MainTest {
     @DisplayName("Mitsubishi, Ford, Holden doğru sınıf tipinde mi ?")
     @Test
     public void testChildClassTypes() throws NoSuchFieldException {
-        assertThat(mitsubishi, instanceOf(Car.class));
-        assertThat(ford, instanceOf(Ford.class));
-        assertThat(holden, instanceOf(Holden.class));
+        assertThat(mitsubishi, instanceOf(org.example.conpany.Car.class));
+        assertThat(ford, instanceOf(org.example.conpany.Ford.class));
+        assertThat(holden, instanceOf(org.example.conpany.Holden.class));
     }
 
     @DisplayName("CarSkeleton sınıf değişkenleri doğru type değerlerine sahip mi ?")
@@ -136,7 +136,7 @@ public class MainTest {
     public void testGasPoweredCar() throws NoSuchMethodException {
         assertThat(gasPoweredCar.getName(), instanceOf(String.class));
         assertThat(gasPoweredCar.getDescription(), instanceOf(String.class));
-        assertThat(gasPoweredCar.getAverageKmPerLiter(), instanceOf(Double.class));
+        assertThat(gasPoweredCar.getAvgKmPerLiter(), instanceOf(Double.class));
         assertThat(gasPoweredCar.getCylinders(), instanceOf(Integer.class));
     }
 
